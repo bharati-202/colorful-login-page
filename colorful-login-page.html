@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Login Page</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            margin: 0;
+            font-size: 24px;
+        }
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("https://static.vecteezy.com/system/resources/previews/000/402/352/original/vector-background-wallpaper-with-polygons-in-gradient-colors.jpg");
+            background-size: cover;
+            background-position: center;
+            animation: anim 2.5s linear infinite;
+        }
+        @keyframes anim {
+            100% {
+                filter: hue-rotate(360%);
+            }
+        }
+        .login-box {
+            width: 550px;
+            height: 510px;
+            position: relative;
+            border-radius: 15px;
+            border: 3px solid papayawhip;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevent blur overflow */
+        }
+        .login-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://img.freepik.com/premium-photo/abstract-wave-gradient-background-digital-illustration_160901-6107.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px); /* Blur only the background image */
+            z-index: 1; /* Send it behind the content */
+        }
+        form {
+            width: 80%;
+            z-index: 1; /* Ensure form content stays above the blurred background */
+        }
+        h2 {
+            font-size: 2em;
+            color: white;
+            text-align: center;
+            margin: 24px 0;
+        }
+        .input-box {
+            width: 100%;
+            margin: 48px 0;
+            position: relative;
+            border-bottom: 1px solid white;
+        }
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            color: white;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+        .input-box input {
+            width: 150px;
+            height: 50px;
+            background: transparent;
+            color: white;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            padding: 0 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .input-box input:focus {
+            width: 100%;
+        }
+        .input-box input:focus~label,
+        .input-box input:not(:placeholder-shown)~label {
+            left: 5px;
+            font-size: 1em;
+            background: linear-gradient(rgb(255, 228, 228), rgb(215, 215, 245), rgb(252, 252, 220)); /* Gradient for text */
+            -webkit-background-clip: text; /* Clip background to text */
+            -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+            transform: translate(0%, -180%) rotateY(360deg);
+            transition: 1s linear;
+        }
+        .input-box input:placeholder-shown~label {
+            left: 10px;
+            font-size: 1em;
+            color: white;
+            transform: translateY(-50%);
+            transition: 0.5s;
+        }
+        .remember-forgot {
+            margin: 0 0 32px 0;
+            font-size: .9em;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        .remember-forgot label {
+            display: flex;
+            gap: 5px;
+        }
+        .remember-forgot input {
+            transform: scale(1.2);
+        }
+        .remember-forgot a {
+            color: white;
+            text-decoration: none;
+        }
+        button {
+            width: 100%;
+            height: 45px;
+            background-color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1em;
+            color: black;
+            font-weight: 500;
+        }
+        .register-link {
+            font-size: .9em;
+            color: aliceblue;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+        .register-link p a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login-box">
+            <form action="">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label for="">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Forgot Password</a>
+                </div>
+                <button type="submit">Login</button>
+                <div class="register-link">
+                    <p>
+                        Don't have an account?
+                        <a href="#">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
